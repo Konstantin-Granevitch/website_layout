@@ -7,7 +7,7 @@
 ## Установка:
 
 Клонируйте репозиторий:
-```https://github.com/Konstantin-Granevitch/website-layout(HW)```
+```https://github.com/Konstantin-Granevitch/website-layout```
 
 ## Тестирование:
 
