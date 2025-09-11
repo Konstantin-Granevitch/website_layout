@@ -1,11 +1,40 @@
-import requests
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+hostName = "localhost"
+serverPort = 8080
 
 
-def get_request(user_url: str):
-    url = user_url
-    response = requests.get(url)
-    return response.text
+class MyServer(BaseHTTPRequestHandler):
+    """
+    Специальный класс, который отвечает за
+    обработку входящих запросов от клиентов
+    """
+
+    def do_GET(self):
+        """Метод для обработки входящих GET-запросов"""
+
+        with open("contacts.html", encoding="utf-8") as f:
+            content = f.read()
+            self.send_response(200)  # Отправка кода ответа
+            self.send_header("Content-type", "text/html")
+            # Отправка типа данных, который будет передаваться
+            self.end_headers()  # Завершение формирования заголовков ответа
+            self.wfile.write(bytes(content, "utf-8"))  # Тело ответа
 
 
 if __name__ == "__main__":
-    print(get_request("http://localhost:63342/website_layout(HW)/contacts.html"))
+    webServer = HTTPServer((hostName, serverPort), MyServer)
+    print("Server started http://%s:%s" % (hostName, serverPort))
+
+    try:
+        # Cтарт веб-сервера в бесконечном цикле прослушивания входящих запросов
+        webServer.serve_forever()
+    except KeyboardInterrupt:
+        # Корректный способ остановить сервер в консоли через
+        # сочетание клавиш Ctrl + C
+        pass
+
+    # Корректная остановка веб-сервера, чтобы он освободил адрес
+    # и порт в сети, которые занимал
+    webServer.server_close()
+    print("Server stopped.")
