@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Контакты</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div style="text-align: center; margin-top: 30px;">
+    <h1>Контакты</h1>
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div class="row">
+            <div class="col-6">
+                <div class="card padding: 10px">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name">Имя</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="floatingInputGroup2">Почта</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text">@</span>
+                                <div class="form-floating is-invalid">
+                                    <input type="text" class="form-control is-invalid" id="floatingInputGroup2"
+                                           placeholder="Username" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message">Сообщение</label>
+                            <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-20">Отправить</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-6">
+                <h2>Наши контакты:</h2>
+                <p> This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+</body>
+</html>
